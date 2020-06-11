@@ -1,0 +1,164 @@
+// variables
+$blue: hsl(233, 87%, 63%);
+$paleBlue: hsl(233, 100%, 88%);
+$lightRed: hsl(354, 100%, 66%);
+$gray: hsl(0, 0%, 59%);
+$darkBlue: hsl(209, 33%, 12%);
+
+// breakpoints
+$min-desktop: 768px; 
+// mixins
+@mixin screen-for-desktop{
+    @media screen and (min-width: $min-desktop) {
+        @content
+    }
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    color: $gray;
+    font-size: 20px;
+}
+
+.container{
+    width: 80%;
+    margin: 0 auto;
+    max-width: 600px;
+}
+
+.flex{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+header{
+    min-height: 10vh;
+    .logo{
+        text-align: center;
+        padding: 3em;
+    }
+}
+
+main{
+    min-height: 80vh;
+}
+
+.subscribe__container{
+    width: 100%;
+
+    h2{
+        font-weight: 300;
+        font-size: 29px;
+
+        @include screen-for-desktop{
+            font-size: 50px;
+        }
+    }
+
+    .subscribe__title--black{
+        color: $darkBlue;;
+        font-weight: 700;
+    }
+    .subscribe__text{
+        color: $darkBlue;
+        padding: 1em 0 2em 0;
+    }
+
+    .subscribe__form{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        position: relative;
+
+        @include screen-for-desktop{
+            flex-direction: row;
+            justify-content: space-evenly;
+        }
+
+        input{
+            border: 1px solid $paleBlue;
+            border-radius: 10em;
+            padding: 1em 0 1em 3em;
+            color: $gray;
+            margin-bottom: 1em;
+
+            &.invalid{
+                border: 2px solid $lightRed;
+                color: $lightRed;
+            }
+
+            &:focus.invalid{
+                color: $gray;
+            }
+
+            @include screen-for-desktop{
+                width: 60%;
+                margin-bottom: 0;
+            }
+        }
+
+        .error-msg{
+            padding-left: 2em;
+            padding-bottom: 2em;
+            color: $lightRed;
+            display: none;
+            font-size: 12.5px;
+
+            @include screen-for-desktop{
+                position: absolute;
+                left: 0;
+                bottom: -30px;
+                padding-bottom: 0;
+                padding-left: 4em;
+                font-size: 15px;
+            }
+        }
+
+        button{
+            border: none;
+            border-radius: 10em;
+            padding: 1em 0;
+            color: #fff;
+            background: $blue;
+            font-weight: 600;
+            box-shadow: 0px 7px 7px rgba($color: $paleBlue, $alpha: .7);
+            cursor: pointer;
+
+            @include screen-for-desktop{
+                width: 30%;
+            }
+            &:hover{
+                opacity: .8;
+            }
+        }
+    }
+}
+
+.image__container{
+    width: 100%;
+    margin-top: 4em;
+
+    img{
+        width: 100%;
+    }
+}
+
+footer{
+    min-height: 10vh;
+    font-size: 15px;
+    .social-media__container{
+        padding-bottom: 1em;
+
+        i+i {
+            padding-left: 1em;
+        }
+    }
+
+}
