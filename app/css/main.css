@@ -177,6 +177,11 @@ footer .social-media__container {
   padding-bottom: 1em;
 }
 
+footer .social-media__container i a {
+  color: #969696;
+  text-decoration: none;
+}
+
 footer .social-media__container i + i {
   padding-left: 1em;
 }
